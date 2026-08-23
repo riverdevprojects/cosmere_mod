@@ -1,0 +1,398 @@
+Roshar 
+Main Systems: 
+- Stormlight
+- Surgebinding
+- Fabrials 
+- Spren
+- Shards (Blades and Plate)
+
+Stormlight
+Explanation: Stormlight is the fuel for everything on Roshar. It comes out of highstorms, gets stored in gemstones, and is spent by Radiants, fabrials, and Soulcasters. A gem is either dun (empty) or infused (glowing). Nothing on Roshar runs without it. 
+Gemstones: 
+- Sapphire
+    - Essence of Zephyr. Soulcasts into air. 
+- Smokestone
+    - Essence of Vapor. Soulcasts into smoke, fog, steam. 
+- Ruby
+    - Essence of Spark. Soulcasts into fire. 
+- Diamond
+    - Essence of Lucentia. Soulcasts into glass, quartz, crystal. Cheapest and most common, used as the standard sphere for lighting and low-value trade. 
+- Emerald
+    - Essence of Opalescence. Soulcasts into wood, plants, and food. The most valuable gem in the dimension because it feeds people. 
+- Garnet
+    - Essence of Blood. Soulcasts into water and all water-based liquids. 
+- Zircon
+    - Essence of Tallow. Soulcasts into oil and all fat-based liquids. 
+- Amethyst
+    - Essence of Foil. Soulcasts into metal. 
+- Topaz
+    - Essence of Talus. Soulcasts into rock and stone. 
+- Heliodor
+    - Essence of Sinew. Soulcasts into flesh and meat. 
+Gem Sizes: 
+- Chip
+    - Behaves like a nugget. 1x storage. Dims fast. 
+- Mark
+    - Behaves like an ingot. 5x storage. 
+- Broam
+    - Behaves like a block. 25x storage. Holds charge the longest. 
+Gathering: 
+- Mining. Small gem deposits generate underground in stone, same as any ore. These are the baseline supply and they only ever cut down to chip or mark. Which of the ten types you find depends on biome and depth. This is the reliable, boring way to get gems. 
+- Gemhearts. Gems that grow inside greatshells, and they are always larger than anything you pull out of the ground. This is the only way to get broams. 
+    - Small greatshells (crab-sized, common in the shallows and on the plains) drop a gemheart that cuts to mark size. 
+    - Mid greatshells (rhinoceros-sized, aggressive, travel in pairs) drop gemhearts that cut to a large mark or a small broam. 
+    - Chasmfiends are the boss tier. They pupate into a chrysalis in the deep chasms and that is the only window where the gemheart can be taken. Cracking a chrysalis drops a full broam-tier gemheart. If you let the chrysalis finish, a live chasmfiend comes out and you are not winning that fight early. 
+    - Which gem type a gemheart holds is tied to the greatshell species, and species are tied to biome. Emerald-bearing greatshells are the rarest and are worth building the economy around. 
+Items/Blocks: 
+- Uncut gemstones and uncut gemhearts. Cannot be infused or used until cut. 
+- Cut gemstones, chip/mark/broam for all ten. Dun and infused states. 
+- Spheres. A cut gem suspended in glass. Infused spheres are a light source and the light level scales with both gem size and remaining charge. A full broam lights like a torch and a nearly-dun chip barely flickers. 
+- Sphere Lamp. Placeable block that holds spheres for area lighting. Gems inside it still charge in a highstorm if it has sky access. 
+- Goblet. Larger sphere holder, holds up to 8 spheres, mostly decorative but useful for bulk charging. 
+- Sphere Pouch. Functions like a bundle, holds spheres only. 
+- Gemstone Cutter. Workstation. Turns uncut gems and gemhearts into chip/mark/broam. Bad cuts crack the gem. 
+- Gem Gauge. Held item that reads the exact charge on a gem instead of eyeballing the glow. 
+- Aluminum-Lined Chest. Blocks Investiture. Gems inside will never leak but also will never charge. 
+Mechanics: 
+- Highstorms replace thunderstorms in the Roshar dimension. They are not ambient weather. A stormwall sweeps the world west to east as a moving wall. The front does heavy knockback and damage to anything caught outside without shelter, and it fills every exposed gem in the world to max. 
+- Infusion requires exposure. A gem in your inventory does not charge. It has to be on the ground, in a sphere lamp, or held in your hand while you are outside during the storm. Setting gems out before the wall arrives and then sprinting for a lee is the core storm loop. 
+- Infused gems leak passively. Broam holds ~3 days, mark ~1.5 days, chip ~half a day. 
+- V draws Stormlight in from a held gem. Charge transfers from the gem into your personal Stormlight pool, shown on a HUD bar. 
+- Holding Stormlight makes you glow at light level 10 with luminous trails coming off your skin. You cannot hide. Mob detection radius goes way up and sneaking does not conceal you. 
+- Holding Stormlight passively gives Regeneration, freeze immunity, reduced fall damage, and freezes the hunger bar. Stormlight sustains the body. 
+- Your pool drains on its own even when idle. Using a Surge drains it much faster. Running out mid-flight is intended. 
+- Holding more than your capacity makes you glow blindingly, drain at double rate, and take chip damage over time. Capacity scales with Ideal level. 
+- Soulcasting and overdrawing can crack a gem. Cracked gems hold 25% and leak fast. They cannot be repaired, only recut one size down. 
+- Aluminum blocks Investiture. Aluminum containers stop gems from charging and from leaking. 
+
+Surgebinding
+Explanation: Surgebinding is what you get from a Nahel bond with a sapient spren. The bond gives access to two of the ten Surges, and the strength of it is gated by Ideals you swear. Everything a Radiant does burns Stormlight out of the personal pool. Break your oaths and the spren dies. 
+Surges: 
+- Adhesion
+    - Full Lashing. Binds two things together. Right click a block to make its surface sticky, or right click an entity to pin it in place. Pinned mobs cannot move until the Stormlight runs out. Sticky surfaces let you climb any wall and cause anything that touches them to stick. Used on two entities it welds them together and they drag each other around. 
+- Gravitation
+    - Basic Lashing. Changes which direction is down for a target. It is not a launch and it is not an impulse, the target simply starts falling in the new direction at normal gravity speed and keeps falling until the Lashing is cleared or the Stormlight runs out. Distance is controlled by how long you leave it on, not by how hard you click. 
+        - Right click an entity to apply one Lashing in the direction you are facing at the moment of the click. 
+        - Right click the same entity again to add a stack, up to 3. One stack is normal falling speed, two is double, three is full speed flight. 
+        - Sneak and right click to clear every Lashing on a target instantly. Whatever it was doing stops and normal gravity takes over again, so a mob you sent two blocks up just drops back down. 
+        - Right click empty air to lash yourself in the direction you are looking. Three stacks on yourself is flight. 
+    - Reverse Lashing. Right click a block or item to turn it into a gravity well. Arrows, thrown items, and loose entities curve toward it. Reverse lashing a shield makes it pull in projectiles aimed anywhere near you. 
+- Division
+    - Burns, decays, and destroys. This is a channel, not a click. Hold on a single block for about 1.5 seconds and it degrades one step down its integrity chain. Stone to gravel to sand, wood to charcoal, leaves to ash, iron blocks to rust. Costs a large amount of Stormlight per block. Obsidian, bedrock, and anything with high blast resistance are immune. It is a siege tool for breaking into places, not a mining replacement. 
+    - Against entities it applies a stacking decay that ignores armor but ticks slowly enough that the target can break line of sight and escape. Costs extra Stormlight against players and passive mobs because of the backlash. 
+- Abrasion
+    - Slick and Grip. Slick removes all friction. On yourself it turns movement into ice-skating with huge speed and no ability to stop. On a mob it makes them slide helplessly on any slope. On a block it makes the surface frictionless. Grip is the inverse and makes you immune to knockback, able to walk up steep terrain, and impossible to push off a ledge. 
+    - Slick can be applied semi-permanently to boats, minecarts, rails, and blocks, and it stays after you stop channeling. A Slicked boat on land moves at full water speed. Slicked rails have no friction losses. Slicked flooring is a trap or a highway depending on who built it. 
+- Progression
+    - Growth and Healing. Growth acts as bonemeal that skips every stage at once and can grow a full tree from a sapling in one use. Critically, it works on bare stone with no soil and no light, which is the only way to farm anything on most of Roshar. 
+    - Healing repairs you or another player directly out of the Stormlight pool at a heavy cost. Lost hearts come back. Cannot bring back the dead and cannot heal damage taken from a Shardblade. 
+- Illumination
+    - Light and sound illusions. Creates a projected copy that mobs will target instead of you. Creates a false sound at a location to pull mobs toward it. Bends light around you for a form of invisibility that fails the moment you attack or take damage. Illusions have no collision and disappear when hit. 
+- Transformation
+    - Soulcasting. Converts a block or item stack into another based on the essence of the gem you have equipped. Costs both Stormlight and a chance to crack the gem. The bigger the conversion the higher the crack chance. Doing this on a living thing is possible and turns the target into the essence, but it costs an enormous amount and cracks the gem nearly every time. 
+- Transportation
+    - Realmatic Transition. Opens a perpendicularity and drops you into Shadesmar. Distance traveled in Shadesmar maps to a much larger distance in the Physical Realm. Used as a short-range blink it teleports you to the block you are looking at. Used as a full transition it puts you in the Shadesmar dimension where the terrain does not match and you have to find a way back. 
+- Cohesion
+    - Makes solids fluid. Right click stone to make it malleable for a few seconds, during which you can push it, pull it into walls and pillars, or sink your hands through it. Sinking into stone and letting it re-solidify around you kills you. Used offensively it can swallow a mob's legs and hold them in place. 
+- Tension
+    - Makes flexible and loose blocks temporarily solid. Right click a source block and it converts every connected block of the same type into a Tensioned version of itself, up to a cap that scales with Ideal level (8 blocks at Second Ideal, 64 at Fifth). Duration scales with Stormlight spent, and when it expires the whole thing reverts at once. A water bridge dropping out from under you mid-crossing is a real and intended failure state. 
+    - Water becomes Tensioned Water. Walkable, solid, still transparent. Instant bridge or wall. 
+    - Wool, carpet, and banners become rigid. A hung banner turns into a full solid block. 
+    - Leaves become solid. Instant platform or wall in any forest. 
+    - Cobwebs become solid and stop slowing you down. 
+    - Sand, gravel, and concrete powder freeze mid-fall. Stops a collapse dead or lets you build an arch out of falling sand. 
+    - Chains and ropes become rigid poles you can stand on horizontally. 
+Orders: 
+- Ideals marked (canon) are the real words from the books. Ideals marked (ours) are written by us because Sanderson has not revealed them. Every completion condition is ours regardless. Windrunners and Skybreakers are the only orders with all five revealed. 
+- Windrunners
+    - Adhesion and Gravitation. Bond honorspren. 
+    - Second Ideal (canon): I will protect those who cannot protect themselves. 
+        - Kill 25 hostile mobs whose current target is a villager or another player. 
+    - Third Ideal (canon): I will protect even those I hate, so long as it is right. 
+        - Do the same 5 times for a player who has damaged you within the last in-game day. 
+    - Fourth Ideal (canon): I accept that there will be those I cannot protect. 
+        - Be within 16 blocks of 3 separate player or villager deaths. You do not have to cause them or stop them. You just have to be there. 
+    - Fifth Ideal (canon): I will protect myself, so that I may continue to protect others. 
+        - Go 10 consecutive in-game days without dying, after the Fourth. The whole order is built on throwing yourself at danger for other people, and the last thing it asks is that you stop doing that. Dying once resets the count. 
+- Skybreakers
+    - Gravitation and Division. Bond highspren. Their real progression is a ladder of narrowing loyalty that snaps at the top: first you serve the law, then a person, then a cause, and then you are released from all of it. 
+    - Second Ideal (canon): I will put the law before all else. 
+        - Pick 3 rules from the list. These are your code from now until the Fifth. 
+            - Never kill a villager. 
+            - Never open a container you did not place. 
+            - Never flee combat above 50% health. 
+            - Never break a block you did not place. 
+            - Never kill a passive mob. 
+            - Never attack first in PvP. 
+            - Never fight during a highstorm. 
+            - Never use a Surge on an unarmed target. 
+        - Breaking a rule locks out every Surge immediately and spawns a penance objective you have to finish to get them back. 
+    - Third Ideal (canon): swear to follow the will of a named person. 
+        - Pick a player. From now on you cannot damage them, and if they die while you are within 32 blocks you take the same lockout as breaking a rule. In singleplayer this can be a named villager instead. 
+    - Fourth Ideal (canon): swear to a crusade, and complete it. 
+        - Pick one and finish it. Clear every pillager outpost within 5000 blocks. Kill 200 of a single mob type. Hold a chunk against 500 kills. The crusade is declared out loud to the server when you swear it. 
+    - Fifth Ideal (canon): I am my own agent. I make my own choices. I am the law. 
+        - Deliberately renounce your Third Ideal person, after having kept that oath unbroken for 15 in-game days. This is the only Ideal in the mod you advance by breaking an oath rather than keeping one, and it has to be a choice, not a failure. Your code from the Second Ideal dissolves and you can never break a rule again because you no longer have any. 
+    - Skybreakers are the one order that cannot make a deadeye. A highspren never lets the bond get deep enough to hurt itself, so when a Skybreaker fails, the spren simply leaves. No screaming Blade, no Dead Shardblade, no 30 day lockout. Your Blade vanishes and the highspren is gone. That is the whole punishment. It makes Skybreaker the safest order to gamble on and the coldest one to play. 
+- Dustbringers
+    - Division and Abrasion. Bond ashspren. Their Ideals are about restraint, not protection. The gates are on NOT using your power, which makes them the hardest order to climb and the only one where the objective is to hold back. 
+    - Second Ideal (canon): To control my power, I will control myself. 
+        - Use Division on 50 blocks without killing a single villager or passive mob. Any kill resets the counter to zero. 
+    - Third Ideal (canon): To understand my power, I will understand what power is. 
+        - Degrade at least one block from every step of every Division chain in the game. You have to learn the whole ladder, not just spam stone. 
+    - Fourth Ideal (ours): I will burn only what must burn. 
+        - Go 3 full in-game days holding Stormlight without using Division once. 
+    - Fifth Ideal (ours): I am the fire, and I choose where I fall. 
+        - Kill a chasmfiend using Division and nothing else. 
+- Edgedancers
+    - Abrasion and Progression. Bond cultivationspren. 
+    - Second Ideal (canon): I will remember those who have been forgotten. 
+        - Visit 10 abandoned structures. Ruined portals, abandoned mineshafts, desert temples, ancient cities, and shipwrecks all count. The game records exactly which ones. 
+    - Third Ideal (canon): I will listen to those who have been ignored. 
+        - Trade with 25 different individual villagers. 
+    - Fourth Ideal (ours): I will not leave them behind. 
+        - Heal or feed other players 50 times. In singleplayer, feed and heal villagers instead. 
+    - Fifth Ideal (ours): I remember. 
+        - Go back and stand in every single structure from your Second Ideal again, in any order. The game kept the list. 
+- Truthwatchers
+    - Progression and Illumination. Bond mistspren. Their Ideals are about finding truth and then handing it over, which in Minecraft terms makes them the mapping and exploration order. 
+    - Second Ideal (canon): I will seek truth wherever it is hidden. 
+        - Enter 10 distinct biomes and 5 generated structures. 
+    - Third Ideal (canon): I will reveal truth to all who seek it. 
+        - Give away 10 filled maps or written books recording locations. In singleplayer, place them in lecterns in a village. 
+    - Fourth Ideal (ours): I will not let it be twisted. 
+        - Heal other players for 200 total health with Progression. 
+    - Fifth Ideal (ours): I will light the path I do not walk. 
+        - Heal 10 different players from below one heart. 
+- Lightweavers
+    - Illumination and Transformation. Bond Cryptics. 
+    - Lightweavers acknowledge no Ideals beyond the First. They speak five Truths about themselves instead, typed in free text by the player. See Lightweaver Truths below for how the check works. 
+- Elsecallers
+    - Transformation and Transportation. Bond inkspren. 
+    - Elsecallers acknowledge no Ideals beyond the First either. They speak Aspirations, which are personal goals themed on self-improvement rather than shared oaths. Mechanically this makes them the only order where the player picks their own progression conditions instead of being handed them. 
+    - At each tier you choose one Aspiration from the list and it becomes binding. You cannot swap it once chosen and you cannot pick the same one twice. Harder tiers unlock harder options. 
+        - Master every essence. Soulcast using all ten at least once. 
+        - Be ready. Survive a highstorm outdoors carrying 10 fully infused broams and finish with all 10 uncracked. 
+        - Never be caught out. Enter Shadesmar 25 times and return alive every time. One death resets it. 
+        - Go further than anyone. Cross 2000 blocks of Shadesmar in a single unbroken transition. 
+        - Outlast. Go 20 in-game days without dying. 
+        - Fill the well. Reach maximum Stormlight capacity and hold it full for a full in-game day. 
+- Willshapers
+    - Transportation and Cohesion. Bond reachers, which Rosharans also call lightspren. 
+    - Second Ideal (canon): I will seek freedom for those in bondage. 
+        - Cure 5 zombie villagers, or free 20 villagers from pillager outposts and raids. 
+    - Third Ideal (canon): I will fight oppression. 
+        - Win 5 raids or clear 5 pillager outposts. 
+    - Fourth Ideal (ours): I will not be bound either. 
+        - Go 3 in-game days without sleeping in a bed and without setting a spawn point. 
+    - Fifth Ideal (ours): I will make a way where there is none. 
+        - Link two Oathgates more than 5000 blocks apart. 
+- Stonewards
+    - Cohesion and Tension. Bond peakspren. Their Ideals are about endurance and being the one who does not move. 
+    - Second Ideal (canon): I will step forward when others fall back. 
+        - Win 10 fights that took you below 2 hearts. Fleeing, teleporting, or dying resets that fight. 
+    - Third Ideal (canon): I will be the foundation on which others can build. 
+        - Take 500 damage while another player is within 4 blocks of you. In singleplayer, while within 4 blocks of a villager. 
+    - Fourth Ideal (ours): I will not move. 
+        - Survive 3 full highstorms outdoors with no shelter and no Shardplate. 
+    - Fifth Ideal (ours): I will be here when the storm has passed. 
+        - Hold a single chunk against 500 hostile mob kills without ever leaving it during a fight. 
+- Bondsmiths
+    - Not in this mod. Decided, not deferred. Nine orders total. Both of their Surges are already covered, Adhesion by Windrunners and Tension by Stonewards, so nothing is orphaned by dropping them. 
+
+Lightweaver Truths: 
+- Five Truths, typed as free text by the player into the Cryptic's window. There is no way for the game to know whether something is true, so the check is on shape, not honesty. The Cryptic rejects anything that fails and tells you what it wanted. 
+- Every Truth must pass all of these: 
+    - At least 20 characters. 
+    - Contains a self-reference: I, me, my, myself, mine, I'm, I've. 
+    - Contains at least one word from the admission list: afraid, scared, lied, lie, failed, fail, weak, coward, hate, hated, ashamed, shame, wrong, cannot, can't, don't, won't, hurt, killed, ran, hid, jealous, selfish, sorry, quit, gave up, pretended, alone. 
+    - Is not a near-duplicate of any Truth you have already spoken. Normalize case, strip punctuation, and compare, so "I am afraid" and "i'm afraid!!" count as the same and get rejected. 
+    - Has never been used by you in a previous bond. The list persists through a broken bond so you cannot recycle. 
+- Escalating requirements on top of the base check: 
+    - Third Truth must name something real in the world. Another player's username, a dimension, or a structure name. 
+    - Fifth Truth must be longer than every Truth before it. 
+- One Truth per in-game day, hard cap. You cannot sit down and type all five in a row, and the pacing is what actually gates the order rather than the wordcount. 
+- The admission list is intentionally long and easy to satisfy. The point is not to catch liars, it is to make you write a sentence shaped like a confession instead of mashing the keyboard. Anyone determined to cheese it can, and that is fine, it is an honor-system order by design. 
+Items/Blocks: 
+- Shardblade. Summoned in ten heartbeats and dismissed instantly. Cuts through any non-living block in a single swing regardless of hardness. Any hit on a living target is instant death with the eyes burning out, no armor check, no shield block. Progression cannot heal Shardblade damage. The only defense is Shardplate. 
+- Dead Shardblade. A Blade from a spren that died at the Recreance. Screams when a player picks it up, applies nausea and darkness on first contact, and cannot be dismissed or resummoned. Has to be carried in the inventory like a normal item. Can still open Oathgates. 
+- Honorblade. Ten exist. Grants both Surges of its order to anyone holding it, no spren and no oaths required, but drains Stormlight far faster than a real bond. Ultimate loot item. 
+- Shardplate. Four pieces in the normal armor slots: helmet, chestplate, leggings, boots. Each piece has a gem slot and runs off its own gem, not off your personal pool. Full set gives huge damage reduction, a strength buff, no fall damage, and sprint speed equal to a horse. A piece cracks and stops working when its gem drains or when it takes enough damage. Radiants regrow their Plate over time, non-Radiants have to swap the gems manually. 
+    - A Shardblade hit on someone wearing Plate destroys the piece covering that slot instead of killing them. This is the only counter to a Blade and it is single-use per piece. 
+- Oathgate. Large placeable structure. Requires a Shardblade turned in a keyhole to activate. Links to other placed Oathgates and teleports everything on the platform. 
+Mechanics: 
+- Bonding is a weekly event, not a hunt. Once every in-game week a single sapient spren appears near an unbonded player at dawn. It follows at a distance, glows, and has an obvious particle trail so you cannot miss it. At dusk it leaves. 
+- The spren that appears is a random order, and it is a different order each week. If you ignore it or fail to bond before nightfall, it is gone and you wait for the next week. This means you cannot pick your order directly, you wait for the one you want and refuse the rest. 
+- Sneak and right click the spren to open the bond prompt and speak the First Ideal. 
+- Once you are bonded, the weekly appearances stop entirely. You cannot hold two bonds and you cannot shop for a better one. 
+- First Ideal is shared by every order except Lightweavers: Life before death, strength before weakness, journey before destination. Speaking it starts the bond and lets you hold Stormlight, but gives no Surges. 
+- Second Ideal unlocks the first Surge. Third Ideal unlocks the second Surge and the Shardblade. Fourth Ideal unlocks Shardplate. Fifth Ideal is the order's capstone. 
+- Every Ideal past the first has a completion condition the player can see in a progress screen, with a live counter. No hidden scores and no judgment calls. You always know exactly what the spren is waiting on. 
+- Each Ideal raises maximum Stormlight capacity and lowers the Stormlight cost of every Surge. 
+- Breaking an oath kills the spren. The Blade becomes a Dead Shardblade, every Surge is lost, and the weekly spren appearances do not resume for 30 in-game days. The conditions that break an oath are listed to the player at the moment they swear it. 
+- Hold R to open the Surge window. It is a small radial in the center of the screen with one wedge per mode, not per Surge, so a Windrunner sees Full Lashing, Basic Lashing, and Reverse Lashing, and an Edgedancer sees Slick, Grip, Growth, and Healing. Move the mouse toward a wedge and release R to select it. The selected mode shows as an icon next to the Stormlight bar. 
+- Tap R to cycle straight to the next mode without opening the radial, for mid-fight swaps. 
+- F toggles the selected Surge on and off. 
+- Caps lock flares the Surge, making it stronger and much more expensive, same as flaring metals. 
+- V draws in Stormlight from the held gem. 
+- Surges cost Stormlight per use and per second while held. Flight, Cohesion, and Division are the most expensive. Adhesion and Illumination are the cheapest. 
+- Radiants cannot hold or use Stormlight inside an aluminum-lined space. 
+- A player can only ever hold one Nahel bond. 
+
+Fabrials
+Explanation: Fabrials are machines that run on trapped spren. You catch a spren in an infused gemstone, set the gem in a metal cage, and the cage decides what the spren's nature does to the world around it. Fabrials are the technology path and they need no bond, no oaths, and no spren of your own, so a player who never becomes a Radiant still has a full progression tree to climb. Radiants are born, artifabrians are made. 
+Anatomy: 
+- Every fabrial is three parts and every part matters. 
+    - Cut gemstone. Sets the power, the duration, and the capacity. Chip fabrials are personal and short-lived, mark fabrials run a household, broam fabrials run a multiblock. 
+    - Captured spren. Sets what the fabrial actually does. This is the whole identity of the device. 
+    - Metal cage. Sets how the spren's nature is applied. 
+- Cage metals: 
+    - Zinc
+        - Augmenter. Produces and amplifies the spren's nature. 
+    - Brass
+        - Diminisher. Absorbs and suppresses the spren's nature. 
+    - Copper
+        - Warner. Does not produce the effect at all, it detects it and emits a redstone signal. 
+    - Aluminum
+        - Constrainer. Does nothing on its own and is only used on a conjoined pair. An aluminum cage makes one half ignore the other's motion along whichever axes you lock, so the paired half only answers to up/down, or only to one horizontal direction. Every lift, door, and flying platform in the dimension is built on this. Without it a conjoined pair copies motion on all three axes at once and is uncontrollable. 
+    - No cage, gem split in half instead
+        - Pairing. See Pairing Fabrials. 
+- Zinc augments and brass diminishes on both worlds. Zinc riots and brass soothes on Scadrial, and it is the same logic here. Keep it consistent, it is free flavor. 
+Spren and Their Effects: 
+- Flamespren
+    - Augmenter: heat source, smelts without fuel, keeps you warm in cold biomes. Diminisher: extinguishes fire in a radius, fireproofs a structure. Warner: fire alarm. 
+- Coldspren
+    - Augmenter: freezes water, chills a room, preserves food. Diminisher: melts ice and snow, thaws a frozen area. Warner: detects freezing conditions. 
+- Painspren
+    - Augmenter: painrial. Damages anything that touches it or enters its radius, ignores armor. The single most common trap block on the server. Diminisher: flat damage reduction in a radius, the closest thing to a medic. Warner: detects any hurt entity nearby. 
+- Windspren
+    - Augmenter: pushes entities and projectiles away, fan, launcher. Diminisher: kills all knockback and stops arrows dead in the air. Warner: detects incoming projectiles. 
+- Lifespren
+    - Augmenter: passive crop and tree growth in a radius, no bonemeal needed. This is the backbone of any real base. Diminisher: withers plants, clears overgrowth, stops crops from growing in a radius. Warner: detects living plants. 
+- Rotspren
+    - Augmenter: applies hunger and decay to entities in radius. Diminisher: food never spoils, iron never rusts, prevents zombie conversion. Warner: detects rotting matter and undead. 
+- Gravitationspren
+    - Augmenter: increases weight, anchors entities, drags things down hard. Diminisher: slow fall, reduced gravity, no fall damage. Warner: detects falling entities. 
+- Fearspren
+    - Augmenter: hostile mobs in radius flee instead of attacking. Diminisher: nothing flees from you, including passive mobs, which makes hunting trivial. Warner: detects hostile mobs. 
+- Angerspren
+    - Augmenter: forces every mob in radius to aggro, including passives. Mob farm bait. Diminisher: hostile mobs go passive in radius. Warner: detects anything currently targeting you. 
+- Exhaustionspren
+    - Augmenter: applies mining fatigue and slowness. Diminisher: infinite sprint, no hunger drain from movement. Warner: detects low-hunger players. 
+- Gloryspren
+    - Augmenter: XP multiplier in radius. Diminisher: suppresses XP drops, useful for not losing levels. Warner: detects nearby XP orbs. 
+- Logicspren
+    - Augmenter: acts as a programmable redstone component, delays and gates signals. Diminisher: blocks redstone signals passing through a radius. Warner: detects redstone activity. 
+- Shockspren
+    - Augmenter: emits a redstone pulse on a timer, calls lightning during a storm. Diminisher: grounds lightning, protects a structure. Warner: detects lightning strikes. 
+- Creationspren
+    - Augmenter: speeds up every crafting station in radius, furnaces smelt faster, brewing stands brew faster. Diminisher: nothing useful, kept for completeness. Warner: detects active crafting nearby. 
+- Musicspren
+    - Augmenter: extends note block range, plays a stored sequence. Mostly decorative and mostly for messing around. 
+Pairing Fabrials: 
+- Made by splitting one infused gem holding one captured spren into two halves at the Gem Splitter. The two halves are permanently linked no matter how far apart they go, including across dimensions. 
+- Conjoiner
+    - The two halves mirror each other. Move one and the other moves identically in the same direction. 
+- Reverser
+    - The two halves oppose each other. Move one and the other moves the same distance in the opposite direction. Counterweights and seesaws. 
+- Weight limit. A pairing fabrial can only move so much mass and the gem size sets the cap. A chip pair moves a single block, a mark pair moves a small platform, a broam pair moves a full lift. Exceed the cap and nothing moves and the gem takes crack damage. 
+- Conjoined Anchor. Placeable block. Pair two of them, then push one with a piston and the other moves the same way with nothing touching it. This is the base component for every lift, door, and moving build on Roshar. 
+- Conjoined Lift. Purpose-built elevator multiblock so people do not have to hand-build piston contraptions every time. 
+Items/Blocks: 
+- Artifabrian's Table. The workstation. Combines gem, captured spren, and cage metal into a finished fabrial. 
+- Gem Splitter. Splits one gem into a linked pair. Destroys the gem if the cut fails. 
+- Spren Cage. Empty fabrial housing, one per cage metal. 
+- Spanreed. A conjoined pair set into two writing reeds. Write on one and it appears on the other in real time, at any distance and across dimensions. Functions as a private two-way chat channel between whoever holds each half. The most useful thing in the mod for a server. 
+- Soulcaster. Bracer with three gem slots. Lets a non-Radiant Soulcast using whichever three essences are set in it. Costs Stormlight and cracks gems fast. Soulcasters wear out and eventually break for good. This is how someone who never bonds a spren still gets Transformation. 
+    - Cannot be crafted, ever. Not at the Artifabrian's Table, not anywhere. A Soulcaster works because a sapient spren is imprisoned inside it, not one of the mindless ones that power every other fabrial, and nobody alive knows how it was done. They are loot only, found in ancient ruins, and there are a fixed number of them in the world. 
+    - The trapped spren is asleep and does not know it is trapped. Nothing in the item tooltip says any of this. A player who takes a Soulcaster into Shadesmar sees it for what it is. 
+- Half-Shard Shield. Fabrial shield. Blocks everything including a Shardblade while its gem holds charge. Poor man's Shardplate and the only non-Radiant answer to a Blade. 
+- Painrial Trap. Placeable painspren augmenter tuned as a floor trap. 
+- Warmth Fabrial. Wearable flamespren diminisher... augmenter, worn in the offhand or as a trinket, keeps you alive in cold biomes and in the highstorm wind chill. 
+- Fabrial Lift. Multiblock elevator built on a conjoined broam pair. 
+- Skyeel Platform. Endgame multiblock. A flying platform run off a bank of conjoined gravitationspren fabrials. Slow, expensive, needs constant recharging, and worth every bit of it. 
+Mechanics: 
+- Catching a spren. Hold an infused gem of any size, find the spren in the world under whatever condition spawns it, and right click it with the gem. It is chance-based and the chance scales with gem size. A failed catch scares the spren off and costs the gem's charge. A successful catch consumes the spren and gives you a Captured Spren item that names what is inside. 
+- Fabrials run on the Stormlight in their own gem, never on your personal pool. A fabrial with a dun gem is a decoration. 
+- Fabrials do not recharge themselves. Either the gem sees a highstorm or you swap in a fresh one. Every fabrial has a gem slot you can open. 
+- Gem size sets radius, strength, and how long a charge lasts. Chip is a few blocks and a few hours, mark is a room and a day, broam is a base and three days. 
+- Overworking a fabrial cracks its gem. When the gem cracks the fabrial stops and the spren inside is released and gone for good. You get the cage back, nothing else. 
+- Aluminum does two opposite things depending on how it is used, and both are true at once. As a barrier it blocks fabrials completely, so an aluminum wall stops any fabrial effect crossing it and is how you build a room a painrial cannot reach into. As a cage it is the only way to control a conjoined pair, because locking axes is what turns a pair from a novelty into a machine. 
+- Axis locking. When you build a conjoined pair into an aluminum cage you pick which of the three axes the receiving half obeys. Lock it to Y only and it becomes an elevator. Lock it to X only and it becomes a sliding door. Lock nothing and it flails. A large build like the Skyeel Platform uses two separate conjoined pairs, one locked to vertical and one locked to horizontal, driven independently. 
+- Fabrials keep working in every dimension. Gems only recharge in a Roshar highstorm. Anyone running fabrials off-world has to come back for the storms, which is the intended pressure. 
+- Warners emit a standard redstone signal, so every warning fabrial drops straight into normal redstone builds with no special handling. 
+
+Spren
+Explanation: Spren are pieces of Shadesmar poking through into the Physical Realm. Every natural force and most strong actions pull them into being. Most of them are mindless and are just an expression of the thing that summoned them, and those are the ones you catch and stuff into fabrials. A small number of them have minds, live in Shadesmar as people, and can form a Nahel bond. Those are true spren and you do not put those in a gem. 
+Classes: 
+- Ambient
+    - Decoration. Spawns, hangs around the thing that caused it, disappears. Cannot be caught. Exists to make the world feel alive and to telegraph what is happening. 
+- Capturable
+    - Same as ambient, except an infused gem can trap one. This is the entire input side of the Fabrials system. 
+- True Spren
+    - Sapient. One kind per order, nine in total. Appear as a manifestation in the Physical Realm and as a person in Shadesmar. Cannot be captured, cannot be killed, cannot be traded. These are the ones that show up for the weekly bond event. 
+Common Spren: 
+- Flamespren
+    - Tiny shifting figures standing inside the flame. Spawn on any fire, lava, lit furnace, blast furnace, campfire, or candle. Capturable. 
+- Coldspren
+    - Small ice spikes that grow pointing at whatever is cold. Spawn on ice, packed ice, powder snow, snow layers, and on any entity taking freeze damage. Capturable. 
+- Painspren
+    - Small orange hands reaching up out of the ground. Spawn wherever any entity takes damage, for a few seconds after the hit. Capturable. 
+- Windspren
+    - Ribbons of light that dart around and behave like they are messing with you. Spawn in open air above y120 and anywhere with a long unobstructed drop. Unlike everything else they actively follow players and will nudge you off ledges for fun. Capturable. 
+- Lifespren
+    - Green motes drifting upward. Spawn where 8 or more plant blocks are within a small radius. Dense farms and jungles are thick with them. Capturable. 
+- Rotspren
+    - Tiny red specks crawling on surfaces. Spawn around dropped rotten flesh, undead mobs, entity corpses, and any pen holding more than 12 animals. Capturable. 
+- Gravitationspren
+    - Blue streamers that fall sideways. Spawn only where gravity is behaving wrong, which means any active Lashing or any entity in freefall for more than 3 seconds. Capturable, but the spawn condition means a non-Radiant needs either a very long drop or a Radiant friend. 
+- Fearspren
+    - Purple gnarled things that push up through the floor. Spawn near any player below 4 hearts with a hostile mob within 16 blocks, and around villagers during a raid. Capturable. 
+- Angerspren
+    - Pools of boiling blood on the ground. Spawn when a player hits a villager or a passive mob, and around any mob currently targeting something. Capturable. 
+- Exhaustionspren
+    - Jets of dust puffing off you. Spawn on the third consecutive night a player has gone without sleeping, and on any player below 3 hunger. Capturable. 
+- Gloryspren
+    - Golden spheres that circle your head. Spawn on earning an advancement, killing a boss, or ending a raid. Short window, so have a gem ready before the fight ends. Capturable. 
+- Logicspren
+    - Little blue stormclouds. Spawn near enchanting tables, lecterns holding a written book, and active redstone circuits. Capturable. 
+- Shockspren
+    - Yellow triangles that snap into existence and vanish. Spawn on lightning strikes, throughout a highstorm, and near redstone that just changed state. Capturable. 
+- Creationspren
+    - Never hold one shape, constantly becoming something else. Spawn at crafting tables, anvils, smithing tables, looms, and stonecutters, but only while someone is actively using them. Capturable. 
+- Musicspren
+    - Spinning translucent ribbons. Spawn around playing note blocks and jukeboxes. Capturable. 
+- Luckspren
+    - Silver-gold, extremely rare, and they trail greatshells. Spawn only near a live chasmfiend or a chrysalis. Capturable, and the fabrial made from one grants Luck, which makes it the most valuable catch in the dimension. 
+- Laughterspren
+    - Silver minnows swimming through the air. Spawn when 2 or more players are within 5 blocks of each other for a while. Not capturable. 
+- Awespren
+    - Blue smoke rings expanding outward. Spawn the first time a player enters a new biome or a new generated structure. Not capturable. 
+- Anticipationspren
+    - Streamers waving up from the ground. Spawn during the warning window before a highstorm arrives and in the seconds before a raid starts. Not capturable, and functionally a free early warning system. 
+- Shamespren
+    - White petals falling upward. Spawn on a player who has just broken a Skybreaker code rule or an oath. Visible to everybody nearby, which is the point. Not capturable. 
+- Joyspren
+    - Blue leaves that rise from your feet and swirl upward. Spawn on a player who just won a PvP fight or finished a raid. Not capturable. 
+- Hungerspren
+    - Tiny brown flies circling your head, almost too small to see. Spawn on any player below 2 hunger. Not capturable. 
+- Deathspren
+    - Red, seen at the edge of vision, and only the dying player can see them. Spawn on a player at or below 1 heart and vanish the moment they heal. Nobody else in the world can see yours. Not capturable. 
+Sapient Spren: 
+- Honorspren, highspren, ashspren, cultivationspren, mistspren, Cryptics, inkspren, reachers, and peakspren. Full detail lives under Surgebinding. 
+- They cannot be captured. Pointing an infused gem at one and attempting a catch fails automatically and the spren leaves permanently. If it was your weekly appearance, you burned it. 
+- They cannot be attacked. Damage passes through them. 
+- In Shadesmar they are not manifestations, they are people, with names and dialogue and the ability to refuse you. 
+Items/Blocks: 
+- Captured Spren. Item, one variant per capturable type, named for what is inside. Glows faintly. Only input to the Artifabrian's Table. 
+- Spren Jar. Holds up to 9 Captured Spren, functions like a bundle. Stops them from being lost in a full inventory. 
+Mechanics: 
+- Spren are particles first. By default every ambient spren in the world is a client-side particle effect with no entity behind it, which is the only way to have thousands of them without killing the server. 
+- Holding an infused gem within 16 blocks converts nearby spren particles into real, catchable entities. They solidify as you approach with Stormlight in hand and go back to being particles when you leave. This is both the performance fix and the reason the world looks different to someone carrying light. 
+- Hard cap on real spren entities per chunk so a player standing in a jungle with a broam does not spawn four hundred lifespren. 
+- Catching is right click with an infused gem. Chance scales with gem size. A failed catch scares the spren off and burns the gem's charge. Detail lives under Fabrials. 
+- Spren cannot be caught during a highstorm. Most of them flee the storm entirely. Windspren and shockspren are the exceptions and both spawn in huge numbers while it passes, so the storm is the best and only time to farm those two. 
+- Holding Stormlight attracts spren. Spawn rates near a glowing player go up across every type, so a Radiant walking through a forest pulls a cloud of lifespren behind them whether they want it or not. This also means you cannot sneak up on anything. 
+- In Shadesmar the relationship inverts. Spren are solid people and the Physical Realm objects are the ghosts. Nothing can be captured there. 
+- Shinovar has no spren. None spawn there, none can be caught there, no fabrial functions there, and no Surge can be used there. It is the one dead zone in the dimension and it is deliberate. Everything you have built stops working the moment you cross in, so whatever we put in Shinovar has to be worth walking into with nothing. 
+- Greatshells only exist because a spren is bonded to them. They are far too large to hold their own weight and the bonded spren is what keeps them standing. That bond is what grows the gemheart, which is why gemhearts are always bigger than anything found in the ground. Kill the greatshell and the spren is released. 
