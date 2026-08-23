@@ -829,6 +829,39 @@ def gen_copper_nugget():
            "minecraft:copper_ingot")
 
 
+def gen_entity_loot():
+    """What the mod's mobs leave behind."""
+    def table(name, pools):
+        write_json(os.path.join(DATA, "loot_table", "entities", name + ".json"),
+                   {"type": "minecraft:entity", "pools": pools})
+
+    def pool(entries, rolls=1):
+        return {"rolls": rolls, "bonus_rolls": 0, "entries": entries}
+
+    def item(name, minimum, maximum, looting=True):
+        functions = [{"function": "minecraft:set_count",
+                      "count": {"type": "minecraft:uniform", "min": minimum, "max": maximum}}]
+        if looting:
+            functions.append({"function": "minecraft:enchanted_count_increase",
+                              "enchantment": "minecraft:looting",
+                              "count": {"type": "minecraft:uniform", "min": 0, "max": 1}})
+        return {"type": "minecraft:item", "name": name, "functions": functions}
+
+    # A mistwraith is a bag of other people's skeletons, and comes apart like one.
+    table("mistwraith", [
+        pool([item("minecraft:bone", 6, 12)]),
+        pool([item("minecraft:rotten_flesh", 4, 9)]),
+    ])
+    table("kandra", [pool([item("minecraft:bone", 2, 5)])])
+    table("koloss", [
+        pool([item(f"{MODID}:koloss_skin", 1, 2)]),
+        pool([item("minecraft:obsidian", 0, 2)]),
+        pool([{"type": "minecraft:item", "name": f"{MODID}:iron_spike",
+               "conditions": [{"condition": "minecraft:random_chance", "chance": 0.35}]}]),
+    ])
+    table("wolfhound", [pool([item("minecraft:bone", 0, 2)])])
+
+
 def main():
     for metal_id, colour, source in METALS:
         gen_metal(metal_id, colour, source)
@@ -839,6 +872,7 @@ def main():
     gen_tables()
     gen_entity_textures()
     gen_tags()
+    gen_entity_loot()
     gen_worldgen()
     gen_lang()
     print(f"generated {len(lang)} translation keys")

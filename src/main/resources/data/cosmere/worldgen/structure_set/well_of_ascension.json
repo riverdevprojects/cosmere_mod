@@ -1,0 +1,14 @@
+{
+  "structures": [
+    {
+      "structure": "cosmere:well_of_ascension",
+      "weight": 1
+    }
+  ],
+  "placement": {
+    "type": "minecraft:random_spread",
+    "spacing": 96,
+    "separation": 40,
+    "salt": 761233
+  }
+}

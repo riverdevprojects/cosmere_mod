@@ -1,0 +1,64 @@
+{
+  "type": "minecraft:chest",
+  "pools": [
+    {
+      "rolls": {
+        "type": "minecraft:uniform",
+        "min": 2,
+        "max": 4
+      },
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "cosmere:atium_bead",
+          "weight": 3
+        },
+        {
+          "type": "minecraft:item",
+          "name": "cosmere:lerasium_nugget",
+          "weight": 1
+        },
+        {
+          "type": "minecraft:item",
+          "name": "cosmere:spike_jar",
+          "weight": 4
+        },
+        {
+          "type": "minecraft:item",
+          "name": "cosmere:atium_ingot",
+          "weight": 2
+        },
+        {
+          "type": "minecraft:item",
+          "name": "cosmere:steel_ingot",
+          "weight": 8,
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "type": "minecraft:uniform",
+                "min": 2,
+                "max": 6
+              }
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "name": "cosmere:boxing",
+          "weight": 10,
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "type": "minecraft:uniform",
+                "min": 4,
+                "max": 16
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
