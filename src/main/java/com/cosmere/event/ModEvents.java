@@ -1,6 +1,5 @@
 package com.cosmere.event;
 
-import com.cosmere.Config;
 import com.cosmere.Cosmere;
 import com.cosmere.InvestitureData;
 import com.cosmere.allomancy.AllomanticActions;
@@ -97,10 +96,19 @@ public final class ModEvents {
         }
     }
 
-    /** A spiked body comes apart into the spikes that were holding it together. */
+    /**
+     * A spiked body comes apart into the spikes that were holding it together.
+     *
+     * <p>Players are exempt: their spikes are part of a spiritweb that survives death along
+     * with the powers those spikes grant. Losing forty-seven spikes to one creeper would make
+     * Hemalurgy unplayable.
+     */
     @SubscribeEvent
     public static void onDrops(LivingDropsEvent event) {
         LivingEntity entity = event.getEntity();
+        if (entity instanceof Player) {
+            return;
+        }
         InvestitureData data = Investiture.of(entity);
         if (data.hemalurgy().count() == 0) {
             return;

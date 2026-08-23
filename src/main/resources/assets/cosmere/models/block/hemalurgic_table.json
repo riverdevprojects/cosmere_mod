@@ -1,5 +1,5 @@
 {
-  "parent": "block/block",
+  "parent": "minecraft:block/block",
   "textures": {
     "particle": "cosmere:block/hemalurgic_table_side",
     "top": "cosmere:block/hemalurgic_table_top",

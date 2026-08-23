@@ -426,7 +426,7 @@ def gen_tables():
         noise_field(rgb(0x6E6A66), 0x4567, spread=0.10), rgb(0x7A1F1F), 0x7654, count=6))
     block_texture("hemalurgic_table_side", noise_field(rgb(0x5C5854), 0x5678, spread=0.10))
     write_json(os.path.join(ASSETS, "models", "block", "hemalurgic_table.json"), {
-        "parent": "block/block",
+        "parent": "minecraft:block/block",
         "textures": {
             "particle": f"{MODID}:block/hemalurgic_table_side",
             "top": f"{MODID}:block/hemalurgic_table_top",

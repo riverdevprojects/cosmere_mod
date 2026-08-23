@@ -55,7 +55,7 @@ public final class ModItems {
 
     // --- gear ---
     public static final DeferredItem<BlindfoldItem> BLINDFOLD = ITEMS.register("blindfold",
-            () -> new BlindfoldItem(new Item.Properties().stacksTo(1).durability(0)));
+            () -> new BlindfoldItem(new Item.Properties().stacksTo(1)));
     public static final DeferredItem<SpikeJarItem> SPIKE_JAR = ITEMS.register("spike_jar",
             () -> new SpikeJarItem(new Item.Properties()));
     public static final DeferredItem<KolossSkinItem> KOLOSS_SKIN = ITEMS.register("koloss_skin",
