@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "N",
+    "N"
+  ],
+  "key": {
+    "N": {
+      "item": "cosmere:nicrosil_nugget"
+    }
+  },
+  "result": {
+    "id": "cosmere:nicrosil_spike",
+    "count": 1
+  }
+}

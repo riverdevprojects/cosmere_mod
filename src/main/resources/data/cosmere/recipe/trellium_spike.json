@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "N",
+    "N"
+  ],
+  "key": {
+    "N": {
+      "item": "cosmere:trellium_nugget"
+    }
+  },
+  "result": {
+    "id": "cosmere:trellium_spike",
+    "count": 1
+  }
+}

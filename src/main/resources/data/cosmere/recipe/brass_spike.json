@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "N",
+    "N"
+  ],
+  "key": {
+    "N": {
+      "item": "cosmere:brass_nugget"
+    }
+  },
+  "result": {
+    "id": "cosmere:brass_spike",
+    "count": 1
+  }
+}

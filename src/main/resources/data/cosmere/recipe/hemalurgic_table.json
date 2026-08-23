@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "SSS",
+    "IPI",
+    "SSS"
+  ],
+  "key": {
+    "S": {
+      "item": "minecraft:polished_andesite"
+    },
+    "I": {
+      "item": "minecraft:iron_ingot"
+    },
+    "P": {
+      "item": "minecraft:redstone_block"
+    }
+  },
+  "result": {
+    "id": "cosmere:hemalurgic_table",
+    "count": 1
+  }
+}

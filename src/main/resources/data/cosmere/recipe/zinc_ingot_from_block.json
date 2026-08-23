@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "cosmere:zinc_block"
+    }
+  ],
+  "result": {
+    "id": "cosmere:zinc_ingot",
+    "count": 9
+  }
+}

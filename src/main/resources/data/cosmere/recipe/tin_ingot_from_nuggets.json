@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "NNN",
+    "NNN",
+    "NNN"
+  ],
+  "key": {
+    "N": {
+      "item": "cosmere:tin_nugget"
+    }
+  },
+  "result": {
+    "id": "cosmere:tin_ingot",
+    "count": 1
+  }
+}

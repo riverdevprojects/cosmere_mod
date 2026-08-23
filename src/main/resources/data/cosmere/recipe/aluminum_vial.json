@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "minecraft:glass_bottle"
+    },
+    {
+      "item": "cosmere:aluminum_nugget"
+    },
+    {
+      "item": "cosmere:aluminum_nugget"
+    },
+    {
+      "item": "cosmere:aluminum_nugget"
+    }
+  ],
+  "result": {
+    "id": "cosmere:aluminum_vial",
+    "count": 1
+  }
+}

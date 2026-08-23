@@ -1,0 +1,43 @@
+{
+  "parent": "block/block",
+  "textures": {
+    "particle": "cosmere:block/hemalurgic_table_side",
+    "top": "cosmere:block/hemalurgic_table_top",
+    "side": "cosmere:block/hemalurgic_table_side"
+  },
+  "elements": [
+    {
+      "from": [
+        0,
+        0,
+        0
+      ],
+      "to": [
+        16,
+        12,
+        16
+      ],
+      "faces": {
+        "down": {
+          "texture": "#side",
+          "cullface": "down"
+        },
+        "up": {
+          "texture": "#top"
+        },
+        "north": {
+          "texture": "#side"
+        },
+        "south": {
+          "texture": "#side"
+        },
+        "west": {
+          "texture": "#side"
+        },
+        "east": {
+          "texture": "#side"
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "NNN",
+    "NNN",
+    "NNN"
+  ],
+  "key": {
+    "N": {
+      "item": "cosmere:pewter_nugget"
+    }
+  },
+  "result": {
+    "id": "cosmere:pewter_ingot",
+    "count": 1
+  }
+}

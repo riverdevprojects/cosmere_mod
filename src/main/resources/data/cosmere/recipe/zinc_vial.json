@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "minecraft:glass_bottle"
+    },
+    {
+      "item": "cosmere:zinc_nugget"
+    },
+    {
+      "item": "cosmere:zinc_nugget"
+    },
+    {
+      "item": "cosmere:zinc_nugget"
+    }
+  ],
+  "result": {
+    "id": "cosmere:zinc_vial",
+    "count": 1
+  }
+}

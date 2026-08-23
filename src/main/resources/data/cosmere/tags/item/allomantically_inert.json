@@ -1,0 +1,13 @@
+{
+  "replace": false,
+  "values": [
+    "minecraft:glass",
+    "minecraft:obsidian",
+    "minecraft:crying_obsidian",
+    "cosmere:glass_dagger",
+    "cosmere:glass_sword",
+    "cosmere:obsidian_dagger",
+    "cosmere:obsidian_sword",
+    "cosmere:obsidian_axe"
+  ]
+}

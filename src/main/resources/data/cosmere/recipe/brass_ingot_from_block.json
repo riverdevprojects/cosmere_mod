@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "cosmere:brass_block"
+    }
+  ],
+  "result": {
+    "id": "cosmere:brass_ingot",
+    "count": 9
+  }
+}

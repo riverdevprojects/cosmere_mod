@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "III",
+    "III",
+    "III"
+  ],
+  "key": {
+    "I": {
+      "item": "cosmere:aluminum_ingot"
+    }
+  },
+  "result": {
+    "id": "cosmere:aluminum_block",
+    "count": 1
+  }
+}

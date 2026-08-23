@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "cosmere:harmonium_ingot"
+    }
+  ],
+  "result": {
+    "id": "cosmere:harmonium_nugget",
+    "count": 9
+  }
+}

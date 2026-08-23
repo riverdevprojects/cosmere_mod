@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "N",
+    "N"
+  ],
+  "key": {
+    "N": {
+      "item": "cosmere:lerasium_nugget"
+    }
+  },
+  "result": {
+    "id": "cosmere:lerasium_spike",
+    "count": 1
+  }
+}

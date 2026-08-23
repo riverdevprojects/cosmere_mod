@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "cosmere:atium_nugget"
+    },
+    {
+      "item": "cosmere:atium_nugget"
+    }
+  ],
+  "result": {
+    "id": "cosmere:atium_bead",
+    "count": 1
+  }
+}

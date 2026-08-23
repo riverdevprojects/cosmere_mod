@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "III",
+    "III",
+    "III"
+  ],
+  "key": {
+    "I": {
+      "item": "cosmere:cadmium_ingot"
+    }
+  },
+  "result": {
+    "id": "cosmere:cadmium_block",
+    "count": 1
+  }
+}

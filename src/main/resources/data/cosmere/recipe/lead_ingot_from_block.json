@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "cosmere:lead_block"
+    }
+  ],
+  "result": {
+    "id": "cosmere:lead_ingot",
+    "count": 9
+  }
+}

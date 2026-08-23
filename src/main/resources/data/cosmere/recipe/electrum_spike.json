@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "N",
+    "N"
+  ],
+  "key": {
+    "N": {
+      "item": "cosmere:electrum_nugget"
+    }
+  },
+  "result": {
+    "id": "cosmere:electrum_spike",
+    "count": 1
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "N",
+    "N"
+  ],
+  "key": {
+    "N": {
+      "item": "cosmere:harmonium_nugget"
+    }
+  },
+  "result": {
+    "id": "cosmere:harmonium_spike",
+    "count": 1
+  }
+}

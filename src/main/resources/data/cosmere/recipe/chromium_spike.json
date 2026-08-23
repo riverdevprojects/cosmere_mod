@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "N",
+    "N"
+  ],
+  "key": {
+    "N": {
+      "item": "cosmere:chromium_nugget"
+    }
+  },
+  "result": {
+    "id": "cosmere:chromium_spike",
+    "count": 1
+  }
+}

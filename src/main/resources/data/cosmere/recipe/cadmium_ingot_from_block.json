@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "cosmere:cadmium_block"
+    }
+  ],
+  "result": {
+    "id": "cosmere:cadmium_ingot",
+    "count": 9
+  }
+}

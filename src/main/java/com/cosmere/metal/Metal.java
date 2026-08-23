@@ -133,6 +133,14 @@ public enum Metal implements StringRepresentable {
         return this.source != Source.VANILLA;
     }
 
+    /**
+     * True when the mod has to supply the nugget. Vanilla ships iron and gold nuggets but not
+     * copper ones, and Feruchemy needs a copper nugget for copperminds.
+     */
+    public boolean hasOwnNugget() {
+        return hasOwnIngot() || this == COPPER;
+    }
+
     /** Human-readable name used when building lang entries. */
     public String displayName() {
         return this.id.substring(0, 1).toUpperCase(Locale.ROOT) + this.id.substring(1);

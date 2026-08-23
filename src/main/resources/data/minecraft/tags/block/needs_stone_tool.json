@@ -1,0 +1,24 @@
+{
+  "replace": false,
+  "values": [
+    "cosmere:tin_ore",
+    "cosmere:deepslate_tin_ore",
+    "cosmere:zinc_ore",
+    "cosmere:deepslate_zinc_ore",
+    "cosmere:cadmium_ore",
+    "cosmere:deepslate_cadmium_ore",
+    "cosmere:aluminum_ore",
+    "cosmere:deepslate_aluminum_ore",
+    "cosmere:chromium_ore",
+    "cosmere:deepslate_chromium_ore",
+    "cosmere:deepslate_atium_ore",
+    "cosmere:lead_ore",
+    "cosmere:deepslate_lead_ore",
+    "cosmere:silver_ore",
+    "cosmere:deepslate_silver_ore",
+    "cosmere:nickel_ore",
+    "cosmere:deepslate_nickel_ore",
+    "cosmere:bismuth_ore",
+    "cosmere:deepslate_bismuth_ore"
+  ]
+}

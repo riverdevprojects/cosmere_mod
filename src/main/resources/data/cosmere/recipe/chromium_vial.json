@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "minecraft:glass_bottle"
+    },
+    {
+      "item": "cosmere:chromium_nugget"
+    },
+    {
+      "item": "cosmere:chromium_nugget"
+    },
+    {
+      "item": "cosmere:chromium_nugget"
+    }
+  ],
+  "result": {
+    "id": "cosmere:chromium_vial",
+    "count": 1
+  }
+}

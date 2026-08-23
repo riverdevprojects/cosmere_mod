@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    " N ",
+    "N N",
+    " N "
+  ],
+  "key": {
+    "N": {
+      "item": "cosmere:duralumin_nugget"
+    }
+  },
+  "result": {
+    "id": "cosmere:duralumin_ring",
+    "count": 1
+  }
+}

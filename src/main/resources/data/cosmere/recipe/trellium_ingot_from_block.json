@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "cosmere:trellium_block"
+    }
+  ],
+  "result": {
+    "id": "cosmere:trellium_ingot",
+    "count": 9
+  }
+}

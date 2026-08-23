@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "minecraft:glass_bottle"
+    },
+    {
+      "item": "cosmere:harmonium_nugget"
+    },
+    {
+      "item": "cosmere:harmonium_nugget"
+    },
+    {
+      "item": "cosmere:harmonium_nugget"
+    }
+  ],
+  "result": {
+    "id": "cosmere:harmonium_vial",
+    "count": 1
+  }
+}

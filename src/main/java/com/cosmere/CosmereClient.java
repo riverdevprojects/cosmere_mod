@@ -1,31 +1,60 @@
 package com.cosmere;
 
-import net.minecraft.client.Minecraft;
+import com.cosmere.client.ModKeyMappings;
+import com.cosmere.client.hud.AllomancyHud;
+import com.cosmere.client.hud.SeekerOverlay;
+import com.cosmere.client.render.ModRenderers;
+import com.cosmere.client.screen.MetallurgyScreen;
+import com.cosmere.client.screen.SpikeJarScreen;
+import com.cosmere.registry.ModMenus;
+
+import net.minecraft.resources.ResourceLocation;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.ModContainer;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.fml.common.Mod;
-import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
+import net.neoforged.neoforge.client.event.EntityRenderersEvent;
+import net.neoforged.neoforge.client.event.RegisterGuiLayersEvent;
+import net.neoforged.neoforge.client.event.RegisterKeyMappingsEvent;
+import net.neoforged.neoforge.client.event.RegisterMenuScreensEvent;
 import net.neoforged.neoforge.client.gui.ConfigurationScreen;
 import net.neoforged.neoforge.client.gui.IConfigScreenFactory;
 
-// This class will not load on dedicated servers. Accessing client side code from here is safe.
+/**
+ * Client-only setup: keys, screens, HUD layers and entity renderers.
+ *
+ * <p>Nothing here decides anything about gameplay. The client sends what the player pressed and
+ * draws what the server told it; every rule lives on the other side.
+ */
 @Mod(value = Cosmere.MODID, dist = Dist.CLIENT)
-// You can use EventBusSubscriber to automatically register all static methods in the class annotated with @SubscribeEvent
 @EventBusSubscriber(modid = Cosmere.MODID, value = Dist.CLIENT)
 public class CosmereClient {
     public CosmereClient(ModContainer container) {
-        // Allows NeoForge to create a config screen for this mod's configs.
-        // The config screen is accessed by going to the Mods screen > clicking on your mod > clicking on config.
-        // Do not forget to add translations for your config options to the en_us.json file.
         container.registerExtensionPoint(IConfigScreenFactory.class, ConfigurationScreen::new);
     }
 
     @SubscribeEvent
-    static void onClientSetup(FMLClientSetupEvent event) {
-        // Some client setup code
-        Cosmere.LOGGER.info("HELLO FROM CLIENT SETUP");
-        Cosmere.LOGGER.info("MINECRAFT NAME >> {}", Minecraft.getInstance().getUser().getName());
+    static void registerKeys(RegisterKeyMappingsEvent event) {
+        event.register(ModKeyMappings.TOGGLE_ARMED);
+        event.register(ModKeyMappings.BURN_WINDOW);
+        event.register(ModKeyMappings.FLARE);
+    }
+
+    @SubscribeEvent
+    static void registerScreens(RegisterMenuScreensEvent event) {
+        event.register(ModMenus.METALLURGY.get(), MetallurgyScreen::new);
+        event.register(ModMenus.SPIKE_JAR.get(), SpikeJarScreen::new);
+    }
+
+    @SubscribeEvent
+    static void registerRenderers(EntityRenderersEvent.RegisterRenderers event) {
+        ModRenderers.register(event);
+    }
+
+    @SubscribeEvent
+    static void registerGuiLayers(RegisterGuiLayersEvent event) {
+        event.registerAboveAll(ResourceLocation.fromNamespaceAndPath(Cosmere.MODID, "allomancy"), new AllomancyHud());
+        event.registerAboveAll(ResourceLocation.fromNamespaceAndPath(Cosmere.MODID, "seeker"), new SeekerOverlay());
     }
 }

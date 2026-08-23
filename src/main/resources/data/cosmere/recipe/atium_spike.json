@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "N",
+    "N"
+  ],
+  "key": {
+    "N": {
+      "item": "cosmere:atium_nugget"
+    }
+  },
+  "result": {
+    "id": "cosmere:atium_spike",
+    "count": 1
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "cosmere:nickel_block"
+    }
+  ],
+  "result": {
+    "id": "cosmere:nickel_ingot",
+    "count": 9
+  }
+}

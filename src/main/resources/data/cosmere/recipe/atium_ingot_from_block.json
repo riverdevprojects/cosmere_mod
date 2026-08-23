@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "cosmere:atium_block"
+    }
+  ],
+  "result": {
+    "id": "cosmere:atium_ingot",
+    "count": 9
+  }
+}

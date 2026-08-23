@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    " N ",
+    "N N",
+    " N "
+  ],
+  "key": {
+    "N": {
+      "item": "cosmere:bendalloy_nugget"
+    }
+  },
+  "result": {
+    "id": "cosmere:bendalloy_ring",
+    "count": 1
+  }
+}

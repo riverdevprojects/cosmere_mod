@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "NNN",
+    "NNN",
+    "NNN"
+  ],
+  "key": {
+    "N": {
+      "item": "cosmere:bismuth_nugget"
+    }
+  },
+  "result": {
+    "id": "cosmere:bismuth_ingot",
+    "count": 1
+  }
+}

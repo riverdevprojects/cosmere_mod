@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "III",
+    "I I",
+    "III"
+  ],
+  "key": {
+    "I": {
+      "item": "cosmere:cadmium_ingot"
+    }
+  },
+  "result": {
+    "id": "cosmere:cadmium_bracer",
+    "count": 1
+  }
+}

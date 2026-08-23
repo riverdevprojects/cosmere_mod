@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "III",
+    "I I",
+    "III"
+  ],
+  "key": {
+    "I": {
+      "item": "cosmere:electrum_ingot"
+    }
+  },
+  "result": {
+    "id": "cosmere:electrum_bracer",
+    "count": 1
+  }
+}

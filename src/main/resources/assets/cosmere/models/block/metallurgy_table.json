@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/cube_bottom_top",
+  "textures": {
+    "top": "cosmere:block/metallurgy_table_top",
+    "side": "cosmere:block/metallurgy_table_side",
+    "bottom": "cosmere:block/metallurgy_table_bottom"
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "cosmere:lerasium_nugget"
+    },
+    {
+      "item": "cosmere:lerasium_nugget"
+    }
+  ],
+  "result": {
+    "id": "cosmere:lerasium_bead",
+    "count": 1
+  }
+}

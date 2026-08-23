@@ -108,6 +108,8 @@ public final class ModItems {
 
             if (metal.hasOwnIngot()) {
                 INGOTS.put(metal, ITEMS.registerSimpleItem(metal.id() + "_ingot", new Item.Properties().rarity(rarity)));
+            }
+            if (metal.hasOwnNugget()) {
                 NUGGETS.put(metal, ITEMS.registerSimpleItem(metal.id() + "_nugget", new Item.Properties().rarity(rarity)));
             }
             if (metal.hasOwnOre()) {

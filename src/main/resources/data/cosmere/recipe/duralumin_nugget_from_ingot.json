@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "cosmere:duralumin_ingot"
+    }
+  ],
+  "result": {
+    "id": "cosmere:duralumin_nugget",
+    "count": 9
+  }
+}

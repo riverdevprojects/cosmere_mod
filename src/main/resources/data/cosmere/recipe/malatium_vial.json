@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "minecraft:glass_bottle"
+    },
+    {
+      "item": "cosmere:malatium_nugget"
+    },
+    {
+      "item": "cosmere:malatium_nugget"
+    },
+    {
+      "item": "cosmere:malatium_nugget"
+    }
+  ],
+  "result": {
+    "id": "cosmere:malatium_vial",
+    "count": 1
+  }
+}

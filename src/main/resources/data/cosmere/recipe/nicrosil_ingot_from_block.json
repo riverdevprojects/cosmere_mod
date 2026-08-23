@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "cosmere:nicrosil_block"
+    }
+  ],
+  "result": {
+    "id": "cosmere:nicrosil_ingot",
+    "count": 9
+  }
+}

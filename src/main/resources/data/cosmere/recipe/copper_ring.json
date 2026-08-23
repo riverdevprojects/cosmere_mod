@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    " N ",
+    "N N",
+    " N "
+  ],
+  "key": {
+    "N": {
+      "item": "cosmere:copper_nugget"
+    }
+  },
+  "result": {
+    "id": "cosmere:copper_ring",
+    "count": 1
+  }
+}

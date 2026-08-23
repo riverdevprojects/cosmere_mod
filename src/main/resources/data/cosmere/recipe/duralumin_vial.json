@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "minecraft:glass_bottle"
+    },
+    {
+      "item": "cosmere:duralumin_nugget"
+    },
+    {
+      "item": "cosmere:duralumin_nugget"
+    },
+    {
+      "item": "cosmere:duralumin_nugget"
+    }
+  ],
+  "result": {
+    "id": "cosmere:duralumin_vial",
+    "count": 1
+  }
+}

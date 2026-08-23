@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "III",
+    "III",
+    "III"
+  ],
+  "key": {
+    "I": {
+      "item": "cosmere:tin_ingot"
+    }
+  },
+  "result": {
+    "id": "cosmere:tin_block",
+    "count": 1
+  }
+}
