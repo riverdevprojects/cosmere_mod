@@ -1,0 +1,13 @@
+{
+  "itemGroup.cosmere": "Cosmere Tab",
+  "block.cosmere.example_block": "Example Block",
+  "item.cosmere.example_item": "Example Item",
+
+  "cosmere.configuration.title": "Cosmere Configs",
+  "cosmere.configuration.section.cosmere.common.toml": "Cosmere Configs",
+  "cosmere.configuration.section.cosmere.common.toml.title": "Cosmere Configs",
+  "cosmere.configuration.items": "Item List",
+  "cosmere.configuration.logDirtBlock": "Log Dirt Block",
+  "cosmere.configuration.magicNumberIntroduction": "Magic Number Text",
+  "cosmere.configuration.magicNumber": "Magic Number"
+}
