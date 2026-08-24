@@ -42,7 +42,7 @@ public final class AllomanticLineCache {
         }
         cooldown = RESCAN_INTERVAL;
         targets = MetalScanner.scan(minecraft.level, minecraft.player.getEyePosition(),
-                Config.BLUE_LINE_RANGE.getAsInt(), true);
+                Config.BLUE_LINE_RANGE.getAsInt(), true, minecraft.player);
     }
 
     private AllomanticLineCache() {

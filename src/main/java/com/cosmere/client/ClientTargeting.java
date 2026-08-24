@@ -6,10 +6,13 @@ import java.util.Optional;
 import com.cosmere.Config;
 import com.cosmere.allomancy.MetalScanner;
 import com.cosmere.allomancy.MetalTarget;
+import com.cosmere.util.ModTags;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.player.LocalPlayer;
 import net.minecraft.core.BlockPos;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.EntityHitResult;
 import net.minecraft.world.phys.HitResult;
@@ -44,10 +47,12 @@ public final class ClientTargeting {
         }
 
         HitResult crosshair = minecraft.hitResult;
-        if (crosshair instanceof EntityHitResult entityHit && MetalScanner.carriesMetal(entityHit.getEntity())) {
+        if (crosshair instanceof EntityHitResult entityHit && entityHit.getEntity() != player
+                && MetalScanner.carriesMetal(entityHit.getEntity())) {
             return new Pick(entityHit.getEntity().getId(), Optional.empty());
         }
-        if (crosshair instanceof BlockHitResult blockHit && crosshair.getType() == HitResult.Type.BLOCK) {
+        if (crosshair instanceof BlockHitResult blockHit && crosshair.getType() == HitResult.Type.BLOCK
+                && isAllomanticBlock(minecraft.level, blockHit.getBlockPos())) {
             return new Pick(-1, Optional.of(blockHit.getBlockPos()));
         }
 
@@ -58,6 +63,12 @@ public final class ClientTargeting {
         return nearest.isEntity()
                 ? new Pick(nearest.entity().getId(), Optional.empty())
                 : new Pick(-1, Optional.ofNullable(nearest.blockPos()));
+    }
+
+    /** Whether a directly-aimed-at block is actually metal, rather than any wall in front of you. */
+    private static boolean isAllomanticBlock(Level level, BlockPos pos) {
+        BlockState state = level.getBlockState(pos);
+        return state.is(ModTags.Blocks.ALLOMANTIC_ANCHOR) || state.is(ModTags.Blocks.ALLOMANTICALLY_MOVABLE);
     }
 
     @Nullable

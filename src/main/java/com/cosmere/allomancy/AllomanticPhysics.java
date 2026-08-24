@@ -1,5 +1,6 @@
 package com.cosmere.allomancy;
 
+import com.cosmere.Config;
 import com.cosmere.entity.CoinProjectileEntity;
 import com.cosmere.item.CoinItem;
 
@@ -58,7 +59,7 @@ public final class AllomanticPhysics {
 
         // Force falls off with distance, but never to nothing inside the burn's range.
         double falloff = 1.0D / (1.0D + distance * 0.08D);
-        double impulse = BASE_IMPULSE * strength * falloff;
+        double impulse = BASE_IMPULSE * strength * falloff * Config.PUSH_STRENGTH.get();
 
         boolean anchors = target.anchored() || target.weight() >= ANCHOR_WEIGHT;
         if (!anchors && target.isEntity()) {
@@ -138,7 +139,7 @@ public final class AllomanticPhysics {
             return true;
         }
         CoinProjectileEntity coin = new CoinProjectileEntity(level, player, stack);
-        float velocity = 1.6F + strength * 0.9F;
+        float velocity = (1.6F + strength * 0.9F) * Config.PUSH_STRENGTH.get().floatValue();
         coin.shootFromRotation(player, player.getXRot(), player.getYRot(), 0.0F, velocity, 0.4F);
         level.addFreshEntity(coin);
         stack.shrink(1);

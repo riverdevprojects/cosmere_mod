@@ -29,8 +29,13 @@ import net.neoforged.neoforge.network.PacketDistributor;
 public final class ClientEvents {
     private static boolean armed;
     private static boolean flaring;
-    private static boolean pushHeld;
-    private static boolean pullHeld;
+    // Raw button edges, tracked independent of Allomancy, so Nicroburst/Leech fire once per
+    // physical press even when steel/iron isn't burning.
+    private static boolean attackWasDown;
+    private static boolean useWasDown;
+    // What we last told the server Push/Pull was doing. Only these gate a send.
+    private static boolean pushReported;
+    private static boolean pullReported;
 
     public static boolean isArmed() {
         return armed;
@@ -89,23 +94,29 @@ public final class ClientEvents {
         boolean useDown = minecraft.options.keyUse.isDown();
 
         // Nicrosil and chromium fire once on the press rather than being held.
-        if (attackDown && !pushHeld && data.isBurning(Metal.NICROSIL) && pick.entityId() >= 0) {
+        if (attackDown && !attackWasDown && data.isBurning(Metal.NICROSIL) && pick.entityId() >= 0) {
             send(AllomanticActionPayload.Action.NICROBURST, true, pick);
         }
-        if (useDown && !pullHeld && data.isBurning(Metal.CHROMIUM) && pick.entityId() >= 0) {
+        if (useDown && !useWasDown && data.isBurning(Metal.CHROMIUM) && pick.entityId() >= 0) {
             send(AllomanticActionPayload.Action.LEECH, true, pick);
         }
 
-        if (data.isBurning(Metal.STEEL) && attackDown != pushHeld) {
-            pushHeld = attackDown;
-            send(AllomanticActionPayload.Action.PUSH, attackDown, pick);
+        // Compare against what the button+metal combination actually wants, not against the raw
+        // button state -- otherwise igniting steel/iron while the button is already held never
+        // produces an edge, and Push/Pull silently never starts until a fresh press.
+        boolean wantsPush = data.isBurning(Metal.STEEL) && attackDown;
+        if (wantsPush != pushReported) {
+            pushReported = wantsPush;
+            send(AllomanticActionPayload.Action.PUSH, wantsPush, pick);
         }
-        if (data.isBurning(Metal.IRON) && useDown != pullHeld) {
-            pullHeld = useDown;
-            send(AllomanticActionPayload.Action.PULL, useDown, pick);
+        boolean wantsPull = data.isBurning(Metal.IRON) && useDown;
+        if (wantsPull != pullReported) {
+            pullReported = wantsPull;
+            send(AllomanticActionPayload.Action.PULL, wantsPull, pick);
         }
-        pushHeld = attackDown;
-        pullHeld = useDown;
+
+        attackWasDown = attackDown;
+        useWasDown = useDown;
     }
 
     private static void send(AllomanticActionPayload.Action action, boolean pressed, ClientTargeting.Pick pick) {
@@ -113,12 +124,12 @@ public final class ClientEvents {
     }
 
     private static void releaseAll() {
-        if (pushHeld) {
-            pushHeld = false;
+        if (pushReported) {
+            pushReported = false;
             send(AllomanticActionPayload.Action.PUSH, false, ClientTargeting.Pick.NOTHING);
         }
-        if (pullHeld) {
-            pullHeld = false;
+        if (pullReported) {
+            pullReported = false;
             send(AllomanticActionPayload.Action.PULL, false, ClientTargeting.Pick.NOTHING);
         }
     }
@@ -126,8 +137,10 @@ public final class ClientEvents {
     private static void reset() {
         armed = false;
         flaring = false;
-        pushHeld = false;
-        pullHeld = false;
+        attackWasDown = false;
+        useWasDown = false;
+        pushReported = false;
+        pullReported = false;
         ClientInvestitureCache.clear();
     }
 

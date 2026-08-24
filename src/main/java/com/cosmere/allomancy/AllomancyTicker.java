@@ -44,8 +44,14 @@ public final class AllomancyTicker {
     public static void tick(ServerPlayer player) {
         InvestitureData data = Investiture.of(player);
 
+        // Duralumin sets its own flash; a nicrosilmind tap or a Nicroburst can also have set it
+        // before this tick ran (Feruchemy ticks after Allomancy, and Nicroburst fires from a
+        // network handler at any point). Only ever turn it ON here -- never clobber a flash that
+        // was set by something else this tick has not consumed yet.
         boolean duraluminBurning = data.isBurning(Metal.DURALUMIN);
-        data.setDuraluminFlash(duraluminBurning);
+        if (duraluminBurning) {
+            data.setDuraluminFlash(true);
+        }
 
         // Take a snapshot: effects can stop burns, and we must not mutate while iterating.
         List<Metal> burning = new ArrayList<>(data.burning());
@@ -72,7 +78,13 @@ public final class AllomancyTicker {
         }
 
         applyPewterDrag(player, data);
+        // tickHeld() resolves this tick's Push/Pull, which also reads burnStrength() (steel and
+        // iron are no-ops in the per-metal loop above) -- the flash must still be live for it.
         AllomanticActions.tickHeld(player);
+
+        // Whatever set the flash -- duralumin, a nicrosilmind tap, or a Nicroburst -- it has now
+        // been read by every burnStrength() call this tick's effects made. Spend it.
+        data.setDuraluminFlash(false);
 
         if (player.tickCount % 20 == 0) {
             Investiture.sync(player);

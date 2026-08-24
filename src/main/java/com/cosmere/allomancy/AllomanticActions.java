@@ -5,10 +5,12 @@ import java.util.Optional;
 import java.util.UUID;
 import java.util.concurrent.ConcurrentHashMap;
 
+import com.cosmere.Config;
 import com.cosmere.InvestitureData;
 import com.cosmere.metal.Metal;
 import com.cosmere.network.c2s.AllomanticActionPayload;
 import com.cosmere.util.Investiture;
+import com.cosmere.util.ModTags;
 
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.BlockPos;
@@ -39,26 +41,31 @@ public final class AllomanticActions {
     public record Held(AllomanticActionPayload.Action action, int entityId, Optional<BlockPos> blockPos) {
     }
 
-    private static final Map<UUID, Held> HELD = new ConcurrentHashMap<>();
+    // Push and Pull are independent gestures -- one attack, one use -- and a Coinshot/Lurcher
+    // must be able to hold both at once. Separate slots so arming one never overwrites the other.
+    private static final Map<UUID, Held> HELD_PUSH = new ConcurrentHashMap<>();
+    private static final Map<UUID, Held> HELD_PULL = new ConcurrentHashMap<>();
 
     public static void handle(ServerPlayer player, AllomanticActionPayload payload) {
         InvestitureData data = Investiture.of(player);
         if (!data.isPushPullArmed()) {
-            HELD.remove(player.getUUID());
+            HELD_PUSH.remove(player.getUUID());
+            HELD_PULL.remove(player.getUUID());
             return;
         }
 
         switch (payload.action()) {
             case PUSH, PULL -> {
+                Map<UUID, Held> slot = payload.action() == AllomanticActionPayload.Action.PUSH ? HELD_PUSH : HELD_PULL;
                 if (payload.pressed()) {
-                    HELD.put(player.getUUID(), new Held(payload.action(), payload.entityId(), payload.blockPos()));
+                    slot.put(player.getUUID(), new Held(payload.action(), payload.entityId(), payload.blockPos()));
                     // A Push with nothing in front of you flicks the metal out of your hand instead.
                     if (payload.action() == AllomanticActionPayload.Action.PUSH
                             && payload.entityId() < 0 && payload.blockPos().isEmpty()) {
                         tryLaunchHeld(player, data);
                     }
                 } else {
-                    HELD.remove(player.getUUID());
+                    slot.remove(player.getUUID());
                 }
             }
             case LEECH -> {
@@ -74,18 +81,21 @@ public final class AllomanticActions {
         }
     }
 
-    /** Resolves one tick of every held Push and Pull. Called from the server tick. */
+    /** Resolves one tick of every held Push and every held Pull. Called from the server tick. */
     public static void tickHeld(ServerPlayer player) {
-        Held held = HELD.get(player.getUUID());
+        tickHeld(player, HELD_PUSH, Metal.STEEL, false);
+        tickHeld(player, HELD_PULL, Metal.IRON, true);
+    }
+
+    private static void tickHeld(ServerPlayer player, Map<UUID, Held> slot, Metal metal, boolean pull) {
+        Held held = slot.get(player.getUUID());
         if (held == null) {
             return;
         }
         InvestitureData data = Investiture.of(player);
-        boolean pull = held.action() == AllomanticActionPayload.Action.PULL;
-        Metal metal = pull ? Metal.IRON : Metal.STEEL;
 
         if (!data.isPushPullArmed() || !data.isBurning(metal)) {
-            HELD.remove(player.getUUID());
+            slot.remove(player.getUUID());
             return;
         }
 
@@ -97,27 +107,42 @@ public final class AllomanticActions {
     }
 
     public static void forget(UUID playerId) {
-        HELD.remove(playerId);
+        HELD_PUSH.remove(playerId);
+        HELD_PULL.remove(playerId);
+    }
+
+    /**
+     * The reach a Push/Pull is honoured at. Never less than {@link #REACH}, but also never less
+     * than the operator's configured blue-line range -- otherwise the assist cone can select
+     * (and the client can draw a line to) a target the server will silently refuse to act on.
+     */
+    private static double effectiveReach() {
+        return Math.max(REACH, Config.BLUE_LINE_RANGE.getAsInt());
     }
 
     @Nullable
     private static MetalTarget resolve(ServerPlayer player, Held held) {
+        double reach = effectiveReach();
         if (held.entityId() >= 0) {
             Entity entity = player.level().getEntity(held.entityId());
-            if (entity == null || entity.distanceTo(player) > REACH) {
+            if (entity == null || entity == player || entity.distanceTo(player) > reach
+                    || !MetalScanner.carriesMetal(entity)) {
                 return null;
             }
             return MetalTarget.ofEntity(entity, false, MetalScanner.entityMetalWeight(entity));
         }
         BlockPos pos = held.blockPos().orElse(null);
-        if (pos == null || !player.blockPosition().closerThan(pos, REACH)) {
+        if (pos == null || !player.blockPosition().closerThan(pos, reach)) {
             return null;
         }
         BlockState state = player.level().getBlockState(pos);
-        if (state.isAir()) {
-            return null;
+        if (state.is(ModTags.Blocks.ALLOMANTIC_ANCHOR)) {
+            return MetalTarget.ofBlock(pos, true, 100.0F);
         }
-        return MetalTarget.ofBlock(pos, true, 100.0F);
+        if (state.is(ModTags.Blocks.ALLOMANTICALLY_MOVABLE)) {
+            return MetalTarget.ofBlock(pos, true, 40.0F);
+        }
+        return null;
     }
 
     private static void tryLaunchHeld(ServerPlayer player, InvestitureData data) {
@@ -175,6 +200,11 @@ public final class AllomanticActions {
         }
         InvestitureData boosted = Investiture.of(target);
         boosted.setDuraluminFlash(true);
+        // The flash lets their next Allomancy tick apply everything they're burning at 8x, the
+        // same instant that this empties the reserves behind it -- one enormous burst, then gone.
+        for (Metal metal : boosted.burning()) {
+            boosted.setReserve(metal, 0.0F);
+        }
         if (target instanceof ServerPlayer boostedPlayer) {
             Investiture.sync(boostedPlayer);
             boostedPlayer.displayClientMessage(Component.translatable("cosmere.message.nicroburst")

@@ -15,6 +15,7 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
+import org.jetbrains.annotations.Nullable;
 
 /**
  * Finds the metal around an Allomancer.
@@ -34,6 +35,15 @@ public final class MetalScanner {
      *                        is included alongside fixed blocks
      */
     public static List<MetalTarget> scan(Level level, Vec3 center, double range, boolean includeEntities) {
+        return scan(level, center, range, includeEntities, null);
+    }
+
+    /**
+     * As {@link #scan(Level, Vec3, double, boolean)}, but excluding {@code viewer} from the
+     * entity results -- an Allomancer wearing metal armor is not their own target.
+     */
+    public static List<MetalTarget> scan(Level level, Vec3 center, double range, boolean includeEntities,
+                                          @Nullable Entity viewer) {
         List<MetalTarget> targets = new ArrayList<>();
         BlockPos origin = BlockPos.containing(center);
         int r = (int) Math.ceil(range);
@@ -68,7 +78,7 @@ public final class MetalScanner {
 
         if (includeEntities) {
             AABB box = new AABB(center, center).inflate(range);
-            for (Entity entity : level.getEntities((Entity) null, box, MetalScanner::carriesMetal)) {
+            for (Entity entity : level.getEntities(viewer, box, MetalScanner::carriesMetal)) {
                 if (targets.size() >= MAX_TARGETS) {
                     break;
                 }
